@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Shojumaru&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,600&display=swap');
+*,*::after,*::before
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+body
+{
+    color:white;
+}
+
+section
+{
+    height: auto;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 100%;
+    grid-column-gap: 5px;
+    // grid-template-areas: 
+    //     "box 1 box2";
+
+}
+
+.post
+{
+    
+
+    &_img
+    {
+       width: 450px;
+    }
+
+
+
+}
+
+.box1
+{
+    background-color: green;
+}
+.box2
+{
+    background-color: blue;
+}
