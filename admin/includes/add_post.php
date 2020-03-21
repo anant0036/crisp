@@ -5,7 +5,7 @@
 
         $post_title         = $_POST['title'];
         $post_author        = $_POST['post_author'];
-        $post_category_id   = $_POST['post_category_id'];
+        $post_category_id   = $_POST['post_category'];
         $post_status        = $_POST['post_status'];
 
         $post_image         = $_FILES['image']['name'];
@@ -23,12 +23,10 @@
         
         // $query .= "VALUES({$post_category_id},'{$post_title}','{$post_author}',now(),'{$post_image}','{$post_content}','{$post_tags},'{$post_comment_count}','{$post_status}')";
         $query .= "VALUES({$post_category_id},'{$post_title}','{$post_author}',now(),'{$post_image}','{$post_content}','{$post_tags}', '{$post_status}') "; 
-        $create_post_query = mysqli_query($connection, $query)or die("querybhu error");
+        $create_post_query = mysqli_query($connection, $query);
 
-        if(false===$query)
-        echo "<br/>".mysqli_error($connection)."<br/><br/><br/>";
-        else
-        echo "<br/>done ";
+        comfirm($create_post_query);
+
     }
 
 ?>
@@ -43,9 +41,51 @@
 
 
 <div class="form-group">
-    <label for="post_category">Post Category Id</label>
-    <input type="text" name="post_category_id" class="form-control">
-</div>
+       <label for="categories">Categories</label>
+       <select name="post_category" id="">
+           
+      <?php
+
+        $query = "SELECT * FROM categories ";
+        $select_categories = mysqli_query($connection,$query);
+        
+        // comfirm($select_categories);
+
+
+        while($row = mysqli_fetch_assoc($select_categories )) {
+        $cat_id = $row['cat_id'];
+        $cat_title = $row['cat_title'];
+
+
+        if($cat_id == $post_category_id) {
+
+      
+        echo "<option selected value=''>{$cat_title}</option>";
+
+
+        } else {
+
+          echo "<option value='{$cat_id}'>{$cat_title}</option>";
+
+
+        }
+      
+            
+          
+
+
+
+
+
+            
+        }
+
+?>
+           
+        
+       </select>
+
+      </div>
 
 <div class="form-group">
     <label for="post_category">Post Author</label>
