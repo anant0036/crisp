@@ -2,7 +2,7 @@
     "git.ignoreLimitWarning": true,
     "editor.fontSize": 18,
     "editor.fontFamily":"IBM 3270",
-    "window.zoomLevel": -1,
+    "window.zoomLevel": -1.3,
     "terminal.integrated.fontSize": 15,
     "terminal.integrated.fontFamily": "monospace",
     "terminal.integrated.fontWeightBold": "normal",
