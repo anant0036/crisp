@@ -25,7 +25,10 @@
         $query .= "VALUES({$post_category_id},'{$post_title}','{$post_author}',now(),'{$post_image}','{$post_content}','{$post_tags}', '{$post_status}') "; 
         $create_post_query = mysqli_query($connection, $query);
 
-        comfirm($create_post_query);
+        // comfirm($create_post_query);
+        $the_post_id = mysqli_insert_id($connection);
+        echo "<p class='bg-success'>Post Created.<a href='../post.php?p_id={$the_post_id}'>View Post</a></p>";
+
 
     }
 
@@ -98,10 +101,12 @@
     <input type="text" name="author" class="form-control">
 </div> -->
 
-
 <div class="form-group">
-    <label for="post_status">Post Status</label>
-    <input type="text" class="form-control" name="post_status">
+    <select name="post_status" id="">
+        <option value="draft">Post Status</option>
+        <option value="published">Publish</option>
+        <option value="draft">Draft</option>
+    </select>
 </div>
 
 
@@ -119,7 +124,7 @@
 
 <div class="form-group">
     <label for="post_content">Post Content</label>
-    <textarea class="form-control" name="post_content" id="" cols="30" rows="10"></textarea>
+    <textarea class="form-control" name="post_content" id="editor" cols="30" rows="10"></textarea>
 </div>
 
 

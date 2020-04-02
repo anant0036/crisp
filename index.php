@@ -16,7 +16,7 @@
 
                 <?php 
                 
-                    $query = "SELECT * FROM posts ";
+                    $query = "SELECT * FROM posts ORDER BY post_date DESC; ";
                     $select_all_post_query = mysqli_query($connection,$query);
 
                     while($row = mysqli_fetch_assoc($select_all_post_query))
@@ -30,13 +30,10 @@
                         $post_content = substr($row['post_content'],0,100);
                         $post_status = $row['post_status'];
 
-                        if($post_status !== 'published')
+                        if(strtolower($post_status) == 'published')
                         {
-                            echo "<h2> OHHH IT'S LONELY HERE </h2>";
-                            break;
-                        }
-                        else
-                        {
+                            
+                        
                 ?>
                         <h1 class="page-header">
                         Page Heading
@@ -52,10 +49,13 @@
                     </p>
                     <p><span class="glyphicon glyphicon-time"></span> <?php echo $post_date ?></p>
                     <hr>
+                    <a href="post.php?p_id=<?php echo $post_id; ?>">
                     <img class="img-responsive" src="images/<?php echo $post_image; ?>" alt="">
+                    </a>
+                    
                     <hr>
                     <p><?php echo $post_content ?></p>
-                    <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    <a class="btn btn-success" href="post.php?p_id=<?php echo $post_id; ?>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
                     <hr>
 

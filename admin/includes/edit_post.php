@@ -70,7 +70,7 @@
         
         // comfirm($update_post);
         
-        
+        echo "<p class='bg-success'>Post Updated.<a href='../post.php?p_id={$the_post_id}'>View Post</a></p>";
 
     
     
@@ -186,7 +186,7 @@
           
           <?php
           
-          if($post_status == 'published' ) {
+          if(strtolower($post_status) == 'published' ) {
           
               
     echo "<option value='draft'>Draft</option>";

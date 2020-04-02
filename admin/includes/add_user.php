@@ -28,6 +28,8 @@
 
         comfirm($create_user_query);
 
+        echo "User Created: " . " " . "<a href = 'users.php'>View User</a> ";
+
     }
 
 ?>

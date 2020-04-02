@@ -61,7 +61,7 @@
                 echo "<td>{$post_comment_count}</td>";
                 echo "<td>{$post_date}</td>";
                 echo "<td><a href='post.php?source=edit_post&p_id={$post_id}'>EDIT</a></td>";
-                echo "<td><a href='post.php?delete={$post_id}'>Delete</a></td>";
+                echo "<td><a onClick=\" return confirm('After this DATA will be no more ARE YOU SURE!'); \" href='post.php?delete={$post_id}'>Delete</a></td>";
 
 
                 echo "</tr>";

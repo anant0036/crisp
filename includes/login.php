@@ -31,7 +31,9 @@ if(isset($_POST['login']))
 
     }
 
-    if($username === $db_username && $password === $db_user_password)
+    // $password = crypt($password, $db_user_password);
+
+    if($username === $db_username && $password === $db_user_password && ($db_user_role) == 'Admin' )
     {
         header("Location: ../index.php ");
         $_SESSION['username']  = $db_username;
